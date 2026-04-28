@@ -5,6 +5,7 @@ import 'package:flutter_todo_app/todo_model.dart';
 
 import 'new_task_page.dart';
 
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
@@ -12,7 +13,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewPageTask()));
+        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
       },
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,

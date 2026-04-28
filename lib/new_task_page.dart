@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-
-class NewPageTask extends StatelessWidget {
-  const NewPageTask({super.key});
+class NewTaskPage extends StatelessWidget {
+  const NewTaskPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("New Page", style: TextStyle(fontWeight: FontWeight.bold)),
-      ),
+      body: Center(child: Text("New Page")),
     );
   }
 }
