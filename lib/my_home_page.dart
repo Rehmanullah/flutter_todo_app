@@ -15,9 +15,9 @@ class MyHomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(onPressed: (){
         Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
       },
-        backgroundColor: Colors.blue,
+      backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-      child: Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
       appBar: AppBar(
         backgroundColor: Colors.blue,

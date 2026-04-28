@@ -13,12 +13,12 @@ class NewTaskPage extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back_ios_new_rounded),
         ),
+        title: Text(
+          "New Task",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        ),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        title: Text(
-          "Add New Task",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -31,14 +31,14 @@ class NewTaskPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "What to be done",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              "What to be done?",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            TextField(decoration: InputDecoration(hintText: "Enter new task")),
-            SizedBox(height: 20),
+            TextField(decoration: InputDecoration(hintText: "Enter your task")),
+            SizedBox(height: 50),
             Text(
               "Due Date",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
@@ -49,9 +49,9 @@ class NewTaskPage extends StatelessWidget {
                   ),
                 ),
                 IconButton.filled(
-                  onPressed: () async{
+                  onPressed: () async {
                     DateTime? date = await showDatePicker(
-                      context: (context),
+                      context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2000),
                       lastDate: DateTime(2100),
@@ -62,18 +62,21 @@ class NewTaskPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
-            Text("Add to a list", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+            SizedBox(height: 50),
+            Text(
+              "Add to List",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
             DropdownButton(
               isExpanded: true,
-                value: "Study",
-                items: [
-              DropdownMenuItem(value: "Work",child: Text("Work"),),
-              DropdownMenuItem(value: "Study",child: Text("Study"),),
-
-            ], onChanged: (value){
-
-            }),
+              value: "Work",
+              items: [
+                DropdownMenuItem(value: "Shopping", child: Text("Shopping")),
+                DropdownMenuItem(value: "Work", child: Text("Work")),
+                DropdownMenuItem(value: "Study", child: Text("Study")),
+              ],
+              onChanged: (value) {},
+            ),
           ],
         ),
       ),
