@@ -13,16 +13,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> const NewTaskPage()));
       },
       backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Todo App",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
@@ -39,7 +39,7 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: [
+        children: const [
           TodoCardWidget(
             todoModel: TodoModel(
               taskName: "Task 1",

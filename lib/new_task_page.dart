@@ -11,11 +11,11 @@ class NewTaskPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Add New Task",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
@@ -30,19 +30,19 @@ class NewTaskPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "What to be done",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
-            TextField(decoration: InputDecoration(hintText: "Enter new task")),
-            SizedBox(height: 20),
-            Text(
+            const TextField(decoration: InputDecoration(hintText: "Enter new task")),
+            const SizedBox(height: 20),
+            const Text(
               "Due Date",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 300,
                   child: TextField(
                     decoration: InputDecoration(hintText: "Date not set yet"),
@@ -58,12 +58,12 @@ class NewTaskPage extends StatelessWidget {
                     );
                     print(date);
                   },
-                  icon: Icon(Icons.calendar_month),
+                  icon: const Icon(Icons.calendar_month),
                 ),
               ],
             ),
-            SizedBox(height: 20,),
-            Text("Add to a list", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+            const SizedBox(height: 20,),
+            const Text("Add to a list", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
             DropdownButton(
               isExpanded: true,
                 value: "Study",

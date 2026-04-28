@@ -12,11 +12,11 @@ class TodoCardWidget extends StatelessWidget {
         leading: Checkbox(value: todoModel.isCompleted, onChanged: (value) {}),
         title: Text(
           todoModel.taskName,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
         ),
         subtitle: Text(
           todoModel.date,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.blue,
