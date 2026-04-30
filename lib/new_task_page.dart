@@ -7,38 +7,38 @@ class NewTaskPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton.filled(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
-        ),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: Text(
           "Add New Task",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
+        leading: IconButton.filled(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new_rounded),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(
+          right: 20,
+          left: 20,
           top: 20,
           bottom: 20,
-          left: 20,
-          right: 20,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "What to be done",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              "What to add",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            TextField(decoration: InputDecoration(hintText: "Enter new task")),
-            SizedBox(height: 20),
+            TextField(decoration: InputDecoration(hintText: "Enter task name")),
+            SizedBox(height: 30),
             Text(
-              "Due Date",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              "Due date",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
@@ -49,31 +49,36 @@ class NewTaskPage extends StatelessWidget {
                   ),
                 ),
                 IconButton.filled(
-                  onPressed: () async{
-                    DateTime? date = await showDatePicker(
-                      context: (context),
+                  onPressed: ()async {
+                   DateTime? date= await showDatePicker(
+                      context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2000),
                       lastDate: DateTime(2100),
                     );
-                    print(date);
+                   print(date);
                   },
                   icon: Icon(Icons.calendar_month),
                 ),
               ],
             ),
-            SizedBox(height: 20,),
-            Text("Add to a list", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+            SizedBox(height: 30,),
+            Text(
+              "Put in List",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
             DropdownButton(
               isExpanded: true,
-                value: "Study",
-                items: [
-              DropdownMenuItem(value: "Work",child: Text("Work"),),
-              DropdownMenuItem(value: "Study",child: Text("Study"),),
+              value: "Study",
+              items: [
+                DropdownMenuItem(value: "Shopping", child: Text("Shopping", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
+                DropdownMenuItem(value: "Study", child: Text("Study", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
+                DropdownMenuItem(value: "Personal", child: Text("Personal", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
+                DropdownMenuItem(value: "Shopping", child: Text("Shopping", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
 
-            ], onChanged: (value){
-
-            }),
+              ],
+              onChanged: (value) {},
+            ),
           ],
         ),
       ),
