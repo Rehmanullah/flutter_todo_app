@@ -4,7 +4,7 @@ class TodoModel {
   final String category;
   final bool isCompleted;
 
-  TodoModel({
+  const TodoModel({
     required this.taskName,
     required this.date,
     required this.category,

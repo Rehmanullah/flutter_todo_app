@@ -6,15 +6,19 @@ import 'package:flutter_todo_app/todo_model.dart';
 import 'new_task_page.dart';
 
 
-
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
+      },
+      backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
@@ -69,13 +73,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
-      },
-      backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        child: Icon(Icons.add),
       ),
     );
   }
