@@ -5,17 +5,40 @@ import 'package:flutter_todo_app/todo_model.dart';
 
 import 'new_task_page.dart';
 
-
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  void addToList(TodoModel todoModel) {
+    listOfTodo.add(todoModel);
+    setState(() {});
+  }
+
+  List<TodoModel> listOfTodo = [
+    TodoModel(
+      taskName: "Task 1",
+      date: "12-04-2026",
+      category: "Finished",
+      isCompleted: false,
+    ),
+  ];
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (child)=>NewTaskPage()));
-      },
-      backgroundColor: Colors.blue,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (child) => NewTaskPage(addToList: addToList),
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         child: Icon(Icons.add),
       ),
@@ -39,40 +62,41 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: [
-          TodoCardWidget(
-            todoModel: TodoModel(
-              taskName: "Task 1",
-              date: "12-04-2026",
-              category: "Finished",
-              isCompleted: false,
-            ),
-          ),
-          TodoCardWidget(
-            todoModel: TodoModel(
-              taskName: "Task 1",
-              date: "12-04-2026",
-              category: "Finished",
-              isCompleted: false,
-            ),
-          ),
-          TodoCardWidget(
-            todoModel: TodoModel(
-              taskName: "Task 1",
-              date: "12-04-2026",
-              category: "Finished",
-              isCompleted: false,
-            ),
-          ),
-          TodoCardWidget(
-            todoModel: TodoModel(
-              taskName: "Task 1",
-              date: "12-04-2026",
-              category: "Finished",
-              isCompleted: false,
-            ),
-          ),
-        ],
+        // children: [
+        //   TodoCardWidget(
+        //     todoModel: TodoModel(
+        //       taskName: "Task 1",
+        //       date: "12-04-2026",
+        //       category: "Finished",
+        //       isCompleted: false,
+        //     ),
+        //   ),
+        //   TodoCardWidget(
+        //     todoModel: TodoModel(
+        //       taskName: "Task 1",
+        //       date: "12-04-2026",
+        //       category: "Finished",
+        //       isCompleted: false,
+        //     ),
+        //   ),
+        //   TodoCardWidget(
+        //     todoModel: TodoModel(
+        //       taskName: "Task 1",
+        //       date: "12-04-2026",
+        //       category: "Finished",
+        //       isCompleted: false,
+        //     ),
+        //   ),
+        //   TodoCardWidget(
+        //     todoModel: TodoModel(
+        //       taskName: "Task 1",
+        //       date: "12-04-2026",
+        //       category: "Finished",
+        //       isCompleted: false,
+        //     ),
+        //   ),
+        // ],
+        children: listOfTodo.map((e) => TodoCardWidget(todoModel: e)).toList(),
       ),
     );
   }
